@@ -1,4 +1,10 @@
-# Smart Study Planner — (Local)
+# 📚 Smart Study Planner
+
+**Author:** Rohit Badiger
+**Version:** v2.0 (Local Only – No Backend)
+
+An advanced **study planner & productivity tool** with gamification, smart suggestions, analytics, heatmaps, Pomodoro timer, and PWA support.
+Built with **modern web technologies** for a smooth and interactive experience.
 
 This is a local-only enhanced version of the Smart Study Planner with unique features:
 - Gamification: streaks & badges
@@ -70,19 +76,11 @@ smart-study-planner/
 
 ---
 
-# 📚 Smart Study Planner
-
-**Author:** Rohit Badiger
-**Version:** v2.0 (Local Only – No Backend)
-
-An advanced **study planner & productivity tool** with gamification, smart suggestions, analytics, heatmaps, Pomodoro timer, and PWA support.
-Built with **modern web technologies** for a smooth and interactive experience.
-
----
-
-
 ## Notes
 - All data is saved in `localStorage`. No server required.
 - If you want sync across devices, we can integrate Firebase in a follow-up.
+
+## License
+This project is for educational purposes only. Please contact the author for licensing queries.
 
 Enjoy!
