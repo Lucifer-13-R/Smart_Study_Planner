@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Smart Study Planner — Upgraded (Local)</title>
+  <!-- Tailwind CDN for quick styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- GSAP -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0f1724">
+</head>
+<body class="bg-gradient-to-b from-slate-900 to-slate-800 text-slate-100 min-h-screen">
+  <div class="max-w-6xl mx-auto p-6">
+    <header class="flex items-center justify-between mb-6">
+      <h1 class="text-2xl font-semibold">Smart Study Planner — Upgraded</h1>
+      <div class="flex items-center gap-3">
+        <button id="themeToggle" class="px-3 py-1 rounded bg-slate-700">Toggle Theme</button>
+        <button id="installBtn" class="px-3 py-1 rounded bg-indigo-600">Install</button>
+        <button id="exportBtn" class="px-3 py-1 rounded bg-slate-600">Export</button>
+        <button id="importBtn" class="px-3 py-1 rounded bg-slate-600">Import</button>
+        <input id="fileInput" type="file" accept="application/json" class="hidden"/>
+      </div>
+    </header>
+
+    <main class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <section class="md:col-span-2 bg-slate-900 p-4 rounded-lg shadow">
+        <form id="taskForm" class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
+          <input id="title" class="p-2 rounded bg-slate-800" placeholder="Topic (e.g. Physics - Motion)" required />
+          <input id="subject" class="p-2 rounded bg-slate-800" placeholder="Subject (e.g. Physics)" />
+          <input id="due" type="datetime-local" class="p-2 rounded bg-slate-800" />
+          <input id="duration" type="number" min="5" class="p-2 rounded bg-slate-800" placeholder="Estimated min" />
+          <select id="priority" class="p-2 rounded bg-slate-800">
+            <option value="low">Low</option><option value="medium" selected>Medium</option><option value="high">High</option>
+          </select>
+          <div class="flex gap-2">
+            <button class="px-4 py-2 rounded bg-indigo-600" type="submit">Add / Save</button>
+            <button id="clearAll" class="px-4 py-2 rounded bg-slate-700" type="button">Clear All</button>
+            <button id="voiceRead" class="px-4 py-2 rounded bg-emerald-600" type="button">Read Tasks</button>
+          </div>
+          <div class="col-span-2">
+            <label class="text-sm text-slate-400">Spaced repetition suggestion:</label>
+            <div id="suggestion" class="mt-2 p-2 rounded bg-slate-800 text-slate-200">No tasks yet.</div>
+          </div>
+        </form>
+
+        <div id="tasksList" class="space-y-3 max-h-96 overflow-auto p-1"></div>
+      </section>
+
+      <aside class="bg-slate-900 p-4 rounded-lg shadow space-y-4">
+        <div>
+          <h3 class="font-medium">Pomodoro</h3>
+          <div class="text-3xl my-2" id="timerDisplay">25:00</div>
+          <div class="flex gap-2">
+            <button id="startTimer" class="px-3 py-1 rounded bg-indigo-600">Start</button>
+            <button id="pauseTimer" class="px-3 py-1 rounded bg-slate-700">Pause</button>
+            <button id="resetTimer" class="px-3 py-1 rounded bg-slate-700">Reset</button>
+          </div>
+          <label class="text-sm mt-2 block">Length (min): <input id="pomodoroLen" type="number" min="5" value="25" class="w-16 inline-block p-1 rounded bg-slate-800 ml-2"/></label>
+        </div>
+
+        <div>
+          <h3 class="font-medium">Progress</h3>
+          <canvas id="progressChart" width="300" height="200"></canvas>
+          <div id="stats" class="text-sm text-slate-400 mt-2"></div>
+        </div>
+
+        <div>
+          <h3 class="font-medium">Streaks & Badges</h3>
+          <div id="badges" class="flex gap-2 flex-wrap mt-2"></div>
+        </div>
+      </aside>
+
+      <section class="md:col-span-3 bg-slate-900 p-4 rounded-lg shadow">
+        <h3 class="font-medium">Subject Heatmap (last 30 days)</h3>
+        <div id="heatmap" class="grid grid-cols-30 gap-1 mt-3"></div>
+      </section>
+    </main>
+
+    <footer class="mt-6 text-sm text-slate-400">Local-only upgraded version • PWA ready • Voice reminders (browser)</footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

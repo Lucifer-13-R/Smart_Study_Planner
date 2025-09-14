@@ -1,0 +1,4 @@
+/* Additional small styles */
+body.dark { color-scheme: dark; }
+.grid-cols-30 { grid-template-columns: repeat(30, minmax(0,1fr)); }
+.heatcell { height:28px; border-radius:4px; display:flex;align-items:center;justify-content:center;font-size:10px; }
