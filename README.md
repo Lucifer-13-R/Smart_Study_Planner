@@ -1,6 +1,7 @@
 # 📚 Smart Study Planner
 
-**Author:** Rohit Badiger
+**Author:** Rohit Badiger  
+
 **Version:** v2.0 (Local Only – No Backend)
 
 An advanced **study planner & productivity tool** with gamification, smart suggestions, analytics, heatmaps, Pomodoro timer, and PWA support.
